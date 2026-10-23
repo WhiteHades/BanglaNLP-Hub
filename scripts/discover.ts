@@ -120,8 +120,9 @@ function guessTask(text: string): string | undefined {
   if (/speech emotion|emotional speech|emotion.*\b(from|in)\b.*(speech|audio|voice)|acoustic.*emotion|\bspeech\b.*\bser\b/.test(t)) return 'ser';
   if (/speaker (identif|recogni|verif|diariz)|diariz/.test(t)) return 'speaker';
   if (/machine translation.*word sense disambiguation/.test(t)) return 'mt';
-  if (/\bocr\b|optical character recognition/.test(t) &&
-    (/licen[cs]e plate/.test(t) || (/\b(characters?|digits?)\b/.test(t) && !/\b(words?|lines?|documents?|scenes?|texts?)\b/.test(t)))) return undefined;
+  const ocrSubject = t.replace(/optical character recognition/g, 'ocr');
+  if (/\bocr\b/.test(ocrSubject) &&
+    (/licen[cs]e plate/.test(ocrSubject) || (/\b(characters?|digits?)\b/.test(ocrSubject) && !/\b(words?|lines?|documents?|scenes?|texts?)\b/.test(ocrSubject)))) return undefined;
   const specific: [RegExp, string][] = [
     [/speech translation|speech-to-(speech|text) translation|spoken language translation/, 'st'],
     [/visual question answer|\bvqa\b/, 'vqa'],
