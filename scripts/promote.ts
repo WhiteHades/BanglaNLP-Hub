@@ -207,8 +207,9 @@ function classify(title: string): string | undefined {
   //   "speaker adaptation" (an ASR technique) deliberately does not match.
   if (/speaker (identif|recogni|verif|diariz)|diariz/.test(t)) return 'speaker';
   if (/machine translation.*word sense disambiguation/.test(t)) return 'mt';
-  if (/\bocr\b|optical character recognition/.test(t) &&
-    (/licen[cs]e plate/.test(t) || (/\b(characters?|digits?)\b/.test(t) && !/\b(words?|lines?|documents?|scenes?|texts?)\b/.test(t)))) return undefined;
+  const ocrSubject = t.replace(/optical character recognition/g, 'ocr');
+  if (/\bocr\b/.test(ocrSubject) &&
+    (/licen[cs]e plate/.test(ocrSubject) || (/\b(characters?|digits?)\b/.test(ocrSubject) && !/\b(words?|lines?|documents?|scenes?|texts?)\b/.test(ocrSubject)))) return undefined;
 
   // Narrow task phrases must win over broad keyword rules below (e.g. grammar
   // error correction vs POS, and anaphora resolution vs honorific/LLM).
