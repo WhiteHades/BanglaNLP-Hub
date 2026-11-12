@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<style>:root{--mark:oklch(0.5 0.19 25);--glyph:oklch(0.99 0 none)}.mark{fill:var(--mark)}.glyph{fill:var(--glyph)}</style>
+<circle class="mark" cx="64" cy="64" r="64"/>
+<path class="glyph" transform="translate(32.5109 99.6324) scale(0.118380 -0.118380)" d="M445 -20 384 21Q348 78 300.5 118.0Q253 158 194.5 183.0Q136 208 67 216L17 350Q76 388 134.5 418.5Q193 449 255.0 474.5Q317 500 385 520L377 483V558H6L-33 622H526L565 558H453V-18ZM377 77V434L392 405Q348 391 302.5 371.5Q257 352 213.5 329.0Q170 306 133 280L123 303Q169 293 217.5 268.0Q266 243 310.0 201.0Q354 159 388 96Z"/>
+</svg>
